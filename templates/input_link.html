@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Ввод ссылки на ресурс</h3>
+<form method="post" class="mb-4">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.name.label }}
+        {{ form.name(class="form-control", placeholder="Введите ссылку на ресурс") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

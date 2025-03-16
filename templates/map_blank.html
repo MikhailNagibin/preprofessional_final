@@ -13,30 +13,62 @@
             margin: 0;
             padding: 0;
         }
+
         img {
             max-width: 80%;
             height: auto;
             margin: 20px auto;
         }
+
         form {
             margin-top: 20px;
         }
+
         button {
             margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #e65a2e;
+            border-color: #e65a2e;
+        }
+
+        button:hover {
+            background-color: #e65900;
+            border-color: #e68900;
+        }
+
+        .btn-primary, .btn-warning {
+            background-color: #e65a2e;
+            border-color: #e65a2e;
+        }
+
+       .btn-primary:hover, .btn-warning:hover {
+           background-color: #e65900;
+           border-color: #e68900;
+       }
+
+       .btn-danger:hover {
+          background-color: #b30000 !important;
+          border-color: #990000 !important;
+       }
+       .button-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-    <img src="{{ url_for('static', filename='images/' + current_image) }}" alt="Station Image">
-    <form method="POST">
-        <button type="submit" name="action" value="base_stations">Просмотр базовых станций</button>
-        <button type="submit" name="action" value="station_radii">Просмотр радиусов станций</button>
-        <button type="submit" name="action" value="research_stations">Просмотр исследовательских станций</button>
-    </form>
+
+    <img src="{{ url_for('static', filename='images/' + current_image) }}" alt="default-image-6.jpg">
+    <div class="button-row">
+        {{ form.base(class="btn btn-primary") }}
+        {{ form.rad(class="btn btn-primary") }}
+        {{ form.isled(class="btn btn-primary") }}
+    </div>
 </body>
+
 
 
 {% endblock %}

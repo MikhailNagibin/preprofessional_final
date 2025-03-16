@@ -1,6 +1,6 @@
 import json
 import psycopg2
-
+import requests
 
 def get_db_connection() -> psycopg2.extensions.connection:
     with open("config.json") as f:
@@ -14,3 +14,10 @@ def get_db_connection() -> psycopg2.extensions.connection:
         dbname=DATABASE, user=USER, password=PASSWORD, host=HOST, port=PORT
     )
     return conn
+
+
+def get_all_tails(adres: str) -> set:
+    tails = set()
+    while len(tails) != 16:
+        tails.add(tuple(map(tuple, requests.get(adres).json()['message']['data'])))
+    return tails

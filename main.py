@@ -22,8 +22,8 @@ def input_link():
 
 IMAGES = {
     "base_stations": "default-image-6.jpg",
-    "station_radii": "default-image-6.jpg",
-    "research_stations": "default-image-6.jpg"
+    "station_radii": "default-image-7.jpg",
+    "research_stations": "default-image-8.jpg"
 }
 
 @app.route('/map_blank', methods=["GET", "POST"])
@@ -34,9 +34,7 @@ def map_blank():
         button_clicked = request.form.get("action")
         if button_clicked in IMAGES:
             current_image = IMAGES[button_clicked]
-
     return render_template("map_blank.html", active_page="map_blank", current_image=current_image, form=form)
-
 
 
 if __name__ == "__main__":

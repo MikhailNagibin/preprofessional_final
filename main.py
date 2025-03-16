@@ -36,11 +36,12 @@ def make_map(data, points, mode="default"):
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret_key"
 
-@app.route('/')
-def index():
-    return render_template("map_blank.html")
+# @app.route('/')
+# def index():
+#     return render_template("map_blank.html")
 
-@app.route('/input_link')
+
+@app.route('/')
 def input_link():
     form = InputlinkForm()
     if request.method == "POST":
@@ -56,7 +57,7 @@ IMAGES = {
 
 @app.route('/map_blank', methods=["GET", "POST"])
 def map_blank():
-    current_image = "default_map.png"
+    current_image = "default-image-6.jpg"
     form = MapviewForm()
     if request.method == "POST":
         button_clicked = request.form.get("action")

@@ -30,6 +30,26 @@ def input_link():
     return render_template("input_link.html", form=form, active_page="input_link")
 
 
+IMAGES = {
+    "base_stations": "default-image-6.jpg",
+    "station_radii": "default-image-6.jpg",
+    "research_stations": "default-image-6.jpg"
+}
+
+@app.route('/map_blank', methods=["GET", "POST"])
+def map_blank():
+    current_image = "default.jpg"
+
+    if request.method == "POST":
+        button_clicked = request.form.get("action")
+        if button_clicked in IMAGES:
+            current_image = IMAGES[button_clicked]
+
+    return render_template("map_blank.html", active_page="map_blank", current_image=current_image)
+
+
+
+
 if __name__ == "__main__":
     # conn = get_db_connection()
     # cur = conn.cursor()

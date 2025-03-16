@@ -83,4 +83,5 @@ for el in data.copy():
         map[res - 1] = el
     res2 = f59(map[0], map[12], map[3], map[15], el)
 # print(*map, sep='\n')
-print(*map, sep='\n')
+# print(*map, sep='\n')
+print(map)

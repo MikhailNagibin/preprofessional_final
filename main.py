@@ -21,13 +21,13 @@ def make_map(data, points, mode="default"):
         if points:
             for x, y in points:
                 plt.scatter(x, y, color='red', s=50)
-        plt.savefig('static/default_map.png', dpi=300, bbox_inches='tight')
+        plt.savefig('static/rad_map.png', dpi=300, bbox_inches='tight')
         return
     elif mode == "res":
         if points:
             for x, y in points:
                 plt.scatter(x, y, color='red', s=50)
-        plt.savefig('static/default_map.png', dpi=300, bbox_inches='tight')
+        plt.savefig('static/res_map.png', dpi=300, bbox_inches='tight')
         return
 
 
@@ -49,14 +49,14 @@ def input_link():
 
 
 IMAGES = {
-    "base_stations": "default-image-6.jpg",
-    "station_radii": "default-image-7.jpg",
-    "research_stations": "default-image-8.jpg"
+    "base_stations": "default_map.png",
+    "station_radii": "rad_map.png",
+    "research_stations": "static/res_map.png"
 }
 
 @app.route('/map_blank', methods=["GET", "POST"])
 def map_blank():
-    current_image = "default-image-6.jpg"
+    current_image = "default_map.png"
     form = MapviewForm()
     if request.method == "POST":
         button_clicked = request.form.get("action")

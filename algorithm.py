@@ -64,10 +64,11 @@ import numpy as np
 # print(len(data[0]))
 
 # requests.get('https://olimp.miet.ru/ppo_it/api').json()
-data = get_all_tails('https://olimp.miet.ru/ppo_it/api')
+data = get_all_tails('https://olimp.miet.ru/ppo_it/api?status=jury')
 map = [[] for _ in range(16)]
 # print(*data, sep='\n')
 # print('ok')
+
 
 
 # print(dat1[::, 1].reshape(1, -1))
@@ -82,4 +83,4 @@ for el in data.copy():
         map[res - 1] = el
     res2 = f59(map[0], map[12], map[3], map[15], el)
 # print(*map, sep='\n')
-print(map[0])
+print(*map, sep='\n')

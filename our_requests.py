@@ -24,7 +24,7 @@ def get_all_tails(adres: str) -> set:
 
 
 def get_coords(adres: str) -> dict:
-    return requests.get(f'{adres}/coords').json()
+    return requests.get(f'{adres}/coords').json() #получение координат
 
 
 def insert_adres(conn: psycopg2.extensions.connection, adres: str):

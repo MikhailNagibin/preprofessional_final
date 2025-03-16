@@ -1,6 +1,16 @@
 import requests
+from flask import *
+from our_requests import *
 
-data = set()
-while len(data) != 16:
-    data.add(tuple(map(tuple, requests.get("https://olimp.miet.ru/ppo_it/api").json()['message']['data'])))
-print(data)
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+
+
+
+if __name__ == "__main__":
+    conn = get_db_connection()
+    cur = conn.cursor()
+    app.run(host='0.0.0.0', port=8000, debug=True)
